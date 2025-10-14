@@ -4,18 +4,18 @@ metadata:
   name: pod-volume
 spec:
   containers:
-  - name: nginx-container
-    image: nginx:latest
-    volumeMounts:
-    - mountPath: /volume-dentro-do-container
-      name: primeiro-volume
-  - name: jenkins-container
-    image: jenkins:alpine
-    volumeMounts:
-      - mountPath: /volume-dentro-do-container
-        name: primeiro-volume
+    - name: nginx-container
+      image: nginx:latest
+      volumeMounts:
+        - mountPath: /volume-dentro-do-container
+          name: primeiro-volume
+    - name: jenkins-container
+      image: jenkins:alpine
+      volumeMounts:
+        - mountPath: /volume-dentro-do-container
+          name: primeiro-volume
   volumes:
     - name: primeiro-volume
       hostPath:
-        path: /primeiro-volume
-        type: Directory
+        path: /home/primeiro-volume
+        type: DirectoryOrCreate
